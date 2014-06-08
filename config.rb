@@ -47,6 +47,9 @@
 #   end
 # end
 
+# Automatically transforming JSX and using React in Middleman
+activate :react
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
