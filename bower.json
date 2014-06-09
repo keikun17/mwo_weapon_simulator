@@ -1,0 +1,11 @@
+{
+  "name": "Mechwarrior Weapon Simulator",
+  "version": "0.0.1",
+
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "react": "~0.10.0",
+    "requirejs": "~2.1.14"
+  }
+}
