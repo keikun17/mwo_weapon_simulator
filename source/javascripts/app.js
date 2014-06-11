@@ -16,17 +16,11 @@ define(function(require){
   react = require('react'),
 
   // initialize mech
-  mech = require('./app/mech')
-
+  mech = require('./app/mech');
 
   mech.weapons.fire();
+  window.mech = mech;
 
-  var init = function() {
-    console.log("booting;")
-  };
 
-  return {
-    init: init
-  };
 })
 

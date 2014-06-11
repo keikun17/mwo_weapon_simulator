@@ -7,6 +7,18 @@ define (require) ->
     fire: ->
       console.log("fizzle")
 
+  $.getJSON('data/weapons.json', (data) ->
+    weaponsBase.all = data
+  ).fail((data)->
+    console.log "Error loading weapon data"
+  )
+
+
+  window.weapon = weaponsBase
+
+  init: ->
+    console.log "called"
+
   return weaponsBase
 
 
