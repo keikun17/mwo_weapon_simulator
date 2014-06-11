@@ -10,7 +10,6 @@ require.config({
 
 define(function(require){
   var
-
   // library deps
   $ = require('jquery'),
   _ = require('underscore'),
@@ -20,7 +19,7 @@ define(function(require){
   mech = require('./app/mech')
 
 
-  mech.fire();
+  mech.weapons.fire();
 
   var init = function() {
     console.log("booting;")

@@ -1,8 +1,12 @@
-# weapon_loader = (require) ->
-#   $ = 'jquery'
-#   _ = underscore
-#
-# define (weapons, weapon_loader) ->
-#   console.log($)
-#
-#
+define (require) ->
+  $ = require 'jquery'
+  _ = require 'underscore'
+  react = require 'react'
+
+  weaponsBase =
+    fire: ->
+      console.log("fizzle")
+
+  return weaponsBase
+
+

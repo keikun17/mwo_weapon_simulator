@@ -6,13 +6,11 @@ define(function(require){
   react = require('react'),
 
 
-  mechbase = {
-    fire: function(){
-      console.log("fzzzzz..");
-    }
+  mechBase = {
+    weapons: require('./weapons')
   }
 
-  return mechbase;
+  return mechBase;
 })
 
 
