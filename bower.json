@@ -7,6 +7,8 @@
     "bootstrap": "~3.1.1",
     "react": "~0.10.0",
     "requirejs": "~2.1.14",
-    "underscore": null
+    "underscore": null,
+    "backbone": null
+
   }
 }
