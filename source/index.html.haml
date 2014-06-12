@@ -1,6 +1,12 @@
 #content.container-fluid
   .row
     .col-md-3.sidebar
-      Weapon list go here
+      #weaponselect
+        Weapon list go here
+      #equipped-weapons
+        %ul.list-unstyled
+          %li
+            = link_to "Medium_laser", '#', class: 'btn btn-primary'
+
     .col-md-9.col-md-offset-3
       Heat guage and damage info go here
