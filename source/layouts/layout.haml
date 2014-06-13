@@ -7,6 +7,6 @@
     / Use title if it's in the page YAML frontmatter
     %title= current_page.data.title || "Page Title"
     = stylesheet_link_tag "all"
-    %script{type: 'text/javascript', data: {main: './javascripts/app'}, src: './components/requirejs/require.js'}
   %body{:class => page_classes}
     = yield
+  %script{type: 'text/javascript', data: {main: './javascripts/app'}, src: './components/requirejs/require.js'}

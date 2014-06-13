@@ -4,7 +4,7 @@ require.config({
     "jquery": "./../components/jquery/dist/jquery",
     "react": "./../components/react/react",
     "underscore": "./../components/underscore/underscore",
-    "backbone": "./../componentss/backbone/backbone"
+    "backbone": "./../components/backbone/backbone"
   },
   shims: {
     "backbone": {
@@ -27,6 +27,7 @@ define(function(require){
   $ = require('jquery'),
   _ = require('underscore'),
   react = require('react'),
+  backbone = require('backbone')
 
   // initialize mech
   mech = require('./app/mech');
@@ -34,6 +35,18 @@ define(function(require){
   mech.weapons.fire();
   window.mech = mech;
 
+  var Router = Backbone.Router.extend({
+    routes: {
+      "": "goHome"
+    }
+  });
 
+  var app_router = new Router;
+
+  app_router.on('route:goHome', function(){
+    console.log("welcome");
+  });
+
+  Backbone.history.start();
 })
 
