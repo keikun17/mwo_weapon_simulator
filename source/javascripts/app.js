@@ -57,8 +57,9 @@ define(function(require){
     },
     render: function(){
       return(
+        /** @jsx React.DOM */
+        react.DOM.a({href: '#', className: 'btn btn-primary'}, this.props.name)
         // <a href="#" onClick={this.handleClick}>Medium Laser</a>'
-        react.DOM.a({href: '#'}, "Medium Las")
       )
     }
   });
@@ -72,6 +73,7 @@ define(function(require){
     render: function(){
       console.log("rendering weapon");
       console.log(this.$el)
+      react.renderComponent(new weaponComponent({name: "Medium Laser"}), document.getElementById('weaponselect'));
       return this
     }
   })
