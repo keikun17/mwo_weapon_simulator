@@ -54,8 +54,41 @@ define(function(require){
 
   // Model
   var Weapon = Backbone.Model.extend({
+    initialize: function(){
+      console.log("Initializing weapon");
+    }
+  });
 
-  })
+  var small_laser = new Weapon({
+    name: "Small Laser",
+    damage: "5",
+    cooldown: "3",
+    heat: "2",
+    heatgroup: "lasers"
+  });
+
+  var medium_laser = new Weapon({
+    name: "Medium Laser",
+    damage: "5",
+    cooldown: "3",
+    heat: "2",
+    heatgroup: "lasers"
+  });
+
+  var large_laser = new Weapon({
+    name: "Large Laser",
+    damage: "5",
+    cooldown: "3",
+    heat: "2",
+    heatgroup: "lasers"
+  });
+
+  // Collection
+  var weaponCollection = Backbone.Collection.extend({
+    model: Weapon
+  });
+
+  var InnerSphereWeapons = new weaponCollection([small_laser, medium_laser, large_laser]);
 
   // Component
   var weaponComponent = react.createClass({
