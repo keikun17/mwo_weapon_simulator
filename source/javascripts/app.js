@@ -128,8 +128,8 @@ define(function(require){
   })
 
 
-  var medium_laser = new weaponView({weapon_name: 'Medium Laser'});
-  medium_laser.render();
+  var medium_laser_view = new weaponView({weapon_name: 'Medium Laser'});
+  medium_laser_view.render();
 
   // Always at the end
   Backbone.history.start();
