@@ -73,19 +73,29 @@ define(function(require){
 
   // View
   var weaponView = Backbone.View.extend({
-    initialize: function(){
+    initialize: function(options){
+      this.options = options || {};
       this.render();
     },
 
     render: function(){
       console.log("rendering weapon");
       console.log(this.$el)
-      react.renderComponent(new weaponComponent({name: "Medium Laser"}), document.getElementById('weaponselect'));
+      react.renderComponent(new weaponComponent({
+        name: this.options.weapon_name,
+        handleClick: this.clickHandler.bind(this)
+      }),
+      document.getElementById('weaponselect'));
       return this
+    },
+    clickHandler: function() {
+      alert("Weapon click overridden by view");
     }
+
   })
 
-  var medium_laser = new weaponView({el: '#equipped-weapons'});
+
+  var medium_laser = new weaponView({weapon_name: 'Medium Laser'});
   medium_laser.render();
 
   // Always at the end
