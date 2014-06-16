@@ -1,6 +1,6 @@
 {
   "slas": {
-    "name": "Small laser"
+    "name": "Small laser",
     "heat": 2,
     "damage": 3
   },
