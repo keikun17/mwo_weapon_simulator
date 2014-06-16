@@ -52,6 +52,10 @@ define(function(require){
     console.log("welcome");
   });
 
+  // Model
+  var Weapon = Backbone.Model.extend({
+
+  })
 
   // Component
   var weaponComponent = react.createClass({
@@ -61,7 +65,7 @@ define(function(require){
     render: function(){
       return(
         /** @jsx React.DOM */
-        react.DOM.a({href: '#', className: 'btn btn-primary'}, this.props.name)
+        react.DOM.a({ href: '#', className: 'btn btn-primary', onClick: this.handleClick }, this.props.name)
         // <a href="#" onClick={this.handleClick}>Medium Laser</a>'
       )
     }
