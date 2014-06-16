@@ -1,5 +1,8 @@
 // Configuration
 require.config({
+  // CBust cache for every reload
+  // TODO : bust cache only for local/development
+  urlArgs: "bust=" + (new Date()).getTime(),
   paths: {
     "jquery": "./../components/jquery/dist/jquery",
     "react": "./../components/react/react",
