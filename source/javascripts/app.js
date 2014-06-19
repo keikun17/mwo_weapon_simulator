@@ -86,12 +86,41 @@ define(function(require){
   });
 
   // View
+  var EquippedWeaponView = react.createClass({
+    render: function(){
+      /** @jsx React.DOM */
+      console.log("reactive weapon name is");
+      console.log(this.props.equipped_weapon.name);
+      return (
+        react.DOM.li(this.props.equipped_weapon.name)
+      )
+    }
+  });
+
+  var EquippedWeaponListView = react.createClass({
+
+    // Plop a default small laser
+    getInitialState: function(){
+      console.log('reactive initialization');
+      return { equipped_weapons: [{name: 'Small Laser'}]}
+    },
+
+    render: function(){
+      var equipped_weapons = this.state.equipped_weapons.map(function(equipped_weapon){
+        console.log("iterating to equipped weapons:");
+        return( new EquippedWeaponView({equipped_weapon: equipped_weapon}).render() );
+      });
+      console.log("reactive equipped weapons:");
+      console.log(equipped_weapons);
+      return react.DOM.ul(equipped_weapons)
+    }
+  });
+
+
+  react.renderComponent(new EquippedWeaponListView, document.getElementById('equipped-weapons'))
+
   var WeaponView = Backbone.View.extend({
     initialize: function(){
-      console.log("This model is");
-      console.log(this.model);
-      console.log("JSON of the model is");
-      console.log(this.model.toJSON())
       this.render();
     },
 
@@ -112,11 +141,6 @@ define(function(require){
   })
 
 
-  // TODO: Should be rendered by a collectionview
-  // var medium_laser_view = new weaponView({weapon_name: 'Medium Laser'});
-  // var medium_laser_view = new weaponView({weapon_name: 'Medium Laser'});
-  // var medium_laser_view = new weaponView({weapon_name: 'Medium Laser'});
-
   // Collection
   var EquippedWeaponsCollection = Backbone.Collection.extend({
     model: Weapon
@@ -126,28 +150,33 @@ define(function(require){
   var EquippedWeaponsCollectionView = Backbone.View.extend({
 
     initialize: function(){
-      console.log("The collection is");
+      console.log("the collection is");
       console.log(this.collection);
 
     },
 
     render: function(){
-      // Should loop through all weapons in the collection and render them
+      // should loop through all weapons in the collection and render them
       // on the equipped weapons container
 
       // so we don't lost context of the instance once we go to the loop
+
+      equippedWeaponsList = function(){
+        this.collection
+      };
+
       this.collection.each(function(weapon){
         console.log('rendering weapon : ');
         console.log(weapon);
 
-        var weaponView = new WeaponView({model: weapon})
+        var weaponview = new WeaponView({model: weapon})
       });
       return this
     }
   });
 
   var small_laser = {
-    name: "Small Laser",
+    name: "small laser",
     damage: "5",
     cooldown: "3",
     heat: "2",
@@ -155,7 +184,7 @@ define(function(require){
   };
 
   var medium_laser = {
-    name: "Medium Laser",
+    name: "medium laser",
     damage: "5",
     cooldown: "3",
     heat: "2",
@@ -163,21 +192,21 @@ define(function(require){
   };
 
   var large_laser = {
-    name: "Large Laser",
+    name: "large laser",
     damage: "5",
     cooldown: "3",
     heat: "2",
     heatgroup: "lasers"
   };
 
-  console.log("initializing collection");
-  var equippedWeaponsCollection = new EquippedWeaponsCollection([small_laser, medium_laser, large_laser]);
+  // console.log("initializing collection");
+  // var equippedweaponscollection = new EquippedWeaponsCollection([small_laser, medium_laser, large_laser]);
+  //
+  // console.log("pass collection to collection view");
+  // var equippedweaponscollectionview = new EquippedWeaponsCollectionView({collection: equippedweaponscollection});
+  // equippedweaponscollectionview.render();
 
-  console.log("pass collection to collection view");
-  var equippedWeaponsCollectionView = new EquippedWeaponsCollectionView({collection: equippedWeaponsCollection})
-  equippedWeaponsCollectionView.render();
-
-  // Always at the end
-  Backbone.history.start();
+  // always at the end
+  backbone.history.start();
 })
 
