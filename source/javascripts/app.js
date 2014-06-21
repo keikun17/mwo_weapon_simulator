@@ -6,4 +6,11 @@ define(function(require){
   React = require('react'),
   backbone = require('backbone')
 
+  var App = {};
+
+  App.initialize = function(){
+    console.log("output here");
+  }
+
+  return App
 })

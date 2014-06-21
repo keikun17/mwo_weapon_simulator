@@ -23,4 +23,11 @@ require.config({
   }
 });
 
-
+// Load the application
+require([
+  // Load app module and passit to our definition function
+  // 'requiring 'app' loads the 'app.js' in the relative location
+  'app',
+], function(App){
+  App.initialize();
+})

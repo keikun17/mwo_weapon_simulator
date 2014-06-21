@@ -9,7 +9,6 @@
     = stylesheet_link_tag "all"
   %body{:class => page_classes}
     = yield
-  -# %script{type: 'text/javascript', data: {main: './javascripts/app'}, src: '/components/requirejs/require.js'}
-  = javascript_include_tag "config"
-  -# = javascript_include_tag "./components/requirejs/require", 'data-main' => './javascripts/app'
-  = javascript_include_tag "./components/requirejs/require", 'data-main' => './javascripts/appv2'
+
+  -# Entry point
+  = javascript_include_tag "./components/requirejs/require", 'data-main' => './javascripts/main'
