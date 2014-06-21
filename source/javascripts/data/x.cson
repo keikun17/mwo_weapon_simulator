@@ -1,0 +1,13 @@
+asd:
+  b: 'asd'
+  c: 'x'
+c:
+  d: 'd'
+  e: 'e'
+slas:
+  heat: 2
+  damage: 3
+mlas:
+  heat: 4
+  multiplier: 1
+  damage: 5
