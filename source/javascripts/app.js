@@ -4,16 +4,13 @@ define(function(require){
   $ = require('jquery'),
   _ = require('underscore'),
   React = require('react'),
-  backbone = require('backbone'),
+  Backbone = require('backbone'),
   Router = require('router')
 
-  var App = {};
-
-  App.initialize = function(){
+  var initialize = function(){
     console.log("output here");
     Router.initialize();
-
   }
 
-  return App
+  return {initialize: initialize}
 })
